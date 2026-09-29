@@ -15,6 +15,17 @@ public class BaseDeDatos {
 		this.content = new ArrayList<>();
 		this.s1 = new Semaphore(2);
 	}
+
+	public void copiaDatos(ArrayList<ArrayList<String>> tupla) {
+		try {
+			s1.acquire(2);
+			this.content = tupla;
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} finally {
+			s1.release(2);
+		}
+	}
 	/**
 	 * Pre: --- 
 	 * Post: Este metodo permite el leer la base de datos y comprobar

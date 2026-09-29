@@ -29,7 +29,7 @@ public class ThreadServidores extends Thread {
 	 * al que se le pase como parametro.
 	 */
 	public void setTuplas(ArrayList<ArrayList<String>> tuplas) {
-		this.tuplas.content = tuplas;
+		this.tuplas.copiaDatos(tuplas);
 	}
 	/**
 	 * Pre: --- 
@@ -41,6 +41,8 @@ public class ThreadServidores extends Thread {
 			ArrayList<String> tupla = (ArrayList<String>) inObj.readObject(); 
 			tuplas.add(tupla);
 			out.writeObject("Tupla añadida correctamente!");
+			System.out.println("\nEl contenido Actual de la base de "
+					+ "datos es: " + tuplas.content + "\n");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -58,6 +60,8 @@ public class ThreadServidores extends Thread {
 				out.writeObject("Error la tupla no se encuentra en la base de datos");
 			}else {
 				out.writeObject(tuplas.remove(tuplaAborrar));
+				System.out.println("\nEl contenido Actual de la base de "
+						+ "datos es: " + tuplas.content + "\n");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -94,13 +98,10 @@ public class ThreadServidores extends Thread {
 	        	ArrayList<ArrayList<String>> descarga = getTuplas();
 	        	outObj.writeObject(descarga);
 	        }
-	        else if(mensaje.equals("subir")) setTuplas((ArrayList<ArrayList<String>>)
-	        		inObj.readObject());
+	        else if(mensaje.equals("subir")) setTuplas((ArrayList<ArrayList<String>>) inObj.readObject());
 	        else if(mensaje.equals("vida")) outObj.writeObject("Esto es "
 	        		+ "una linea de vida");
 	        else readNote(outObj,inObj);
-	        System.out.println("\nEl contenido Actual de la base de "
-	        		+ "datos es: " + tuplas.content + "\n");
 	        cs.close();
 		}catch(Exception e) {
 			System.out.println(e.getMessage());

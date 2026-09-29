@@ -79,7 +79,7 @@ public class ThreadLinda extends Thread{
 					cs.close();
 				}catch(IOException e) {
 					activo = false;
-					System.out.println("\nError el servidor 1 esta caido");
+					System.out.println("\nError el servidor 1 esta caído");
 				}try {
 					csReplica = new Socket(HOSTReplica,PUERTOReplica);
 					if(activo == false) {
@@ -90,7 +90,7 @@ public class ThreadLinda extends Thread{
 						csReplica.close();
 					}
 				}catch(IOException e) {
-					System.out.println("\nError el servidor replica esta caido");
+					System.out.println("\nError el servidor réplica esta caído");
 				}
 			}else if(tupla.size() > 3 && tupla.size() <= 5) {
 				Socket cs = new Socket(HOST2,PUERTO2);
@@ -102,7 +102,7 @@ public class ThreadLinda extends Thread{
 				cs.close();
 			}
 		} catch (IOException e) {
-			System.out.println("\nError el servidor 2 o 3 esta caido");
+			System.out.println("\nError el servidor 2 o 3 esta caído");
 		}
 	}
 	/**

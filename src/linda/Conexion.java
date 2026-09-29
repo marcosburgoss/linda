@@ -19,7 +19,7 @@ public class Conexion {
     public static int PUERTOLinda2 = 5678; 
     public static int PUERTOLinda3 = 9101;
     public static int puertoLindaReplica = 6587; 
-    private final String HOST = "localhost";
+    private final String HOST = "172.16.4.35";
     protected ServerSocket ss; 
     protected ServerSocket ss1; 
     protected ServerSocket ss2;

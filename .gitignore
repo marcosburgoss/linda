@@ -1,0 +1,20 @@
+# Java build output
+/bin/
+/out/
+/target/
+*.class
+
+# IDE metadata
+/.idea/
+*.iml
+/.classpath
+/.project
+
+# Local operating-system files
+.DS_Store
+Thumbs.db
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
